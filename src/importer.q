@@ -1,17 +1,14 @@
 \d .importer
 
 fetch_data:{[table_names;batch_size;data_date]
-    / (0) Open remote connection
+    / (1) Open remote connection
     h::hopen `$":redacted:redacted:redacted";
     
-    / (1) Set arguments
+    / (2) Set arguments
     tabs:enlist table_names;
     bsize::batch_size;
-    dday::data_date;
-    
-    / (2) Create tables
-    { .[x;();:;()] } each tabs;
-    
+    dday::data_date;  
+  
     / (3) For each remote table;
     /     (3.1) Get the table count
     /     (3.2) Split the table to an optimal value
